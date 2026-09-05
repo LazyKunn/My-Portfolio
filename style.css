@@ -1,10 +1,36 @@
 /* 1. Color Variables (Change the hex codes to customize your site) */
 :root {
-    --bg-color: #f8fafc;        /* Very light gray for the background */
-    --text-color: #334155;      /* Dark gray for better readability */
-    --primary-color: #2563eb;   /* Modern vibrant blue */
-    --card-color: #ffffff;      /* White background for the sections */
+    --bg-color: #f8fafc;        
+    --text-color: #334155;      
+    --primary-color: #9333ea;   /* Deeper purple for Light Mode */
+    --card-color: #ffffff;      
     --font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --bg-color: #313338;        /* Discord's main background gray */
+    --card-color: #2b2d31;      /* Discord's slightly darker gray for cards */
+    --text-color: #dbdee1;      /* Discord's soft off-white text color */
+    --primary-color: #a855f7;   /* Vibrant, modern purple that looks great on dark mode */
+}
+
+/* Theme Toggle Button Styling */
+#theme-toggle {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background: var(--primary-color);
+    color: var(--card-color);
 }
 
 /* 2. Base Reset (Removes default browser margins) */
@@ -88,4 +114,31 @@ section h2 {
     section {
         padding: 1.5rem;
     }
+}
+
+/* 7. Footer */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    background-color: var(--card-color);
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.02);
+    color: #64748b;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #1d4ed8; /* A slightly darker blue for hover */
+    text-decoration: underline;
 }
