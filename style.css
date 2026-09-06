@@ -1,43 +1,35 @@
-/* 1. Color Variables (Change the hex codes to customize your site) */
+/* =========================================
+   1. COLOR VARIABLES & THEMES
+========================================= */
 :root {
-    --bg-color: #f8fafc;        
-    --text-color: #334155;      
-    --primary-color: #9333ea;   /* Deeper purple for Light Mode */
-    --card-color: #ffffff;      
     --font-family: 'Segoe UI', system-ui, sans-serif;
+    
+    --bg-color: #111111; 
+    --card-color: #1c1c1c; 
+    --text-color: #f5f5f5;     
+    --primary-color: #a31a2a;  
+    --theme-toggle-color: #facc15;
 }
 
-/* Dark Mode Variables */
-[data-theme="dark"] {
-    --bg-color: #313338;        /* Discord's main background gray */
-    --card-color: #2b2d31;      /* Discord's slightly darker gray for cards */
-    --text-color: #dbdee1;      /* Discord's soft off-white text color */
-    --primary-color: #a855f7;   /* Vibrant, modern purple that looks great on dark mode */
+[data-theme="light"] {
+    --bg-color: #f8faf9;        
+    --card-color: #ffffff;      
+    --text-color: #111827;
+    --primary-color: #a51a36;   
+    --theme-toggle-color: #facc15; 
 }
 
-/* Theme Toggle Button Styling */
-#theme-toggle {
-    background: none;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
-}
-
-#theme-toggle:hover {
-    background: var(--primary-color);
-    color: var(--card-color);
-}
-
-/* 2. Base Reset (Removes default browser margins) */
+/* =========================================
+   2. BASE RESET & BODY
+========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; 
 }
 
 body {
@@ -47,48 +39,94 @@ body {
     line-height: 1.6;
 }
 
-/* 3. Header (Where your name is) */
-header {
+/* =========================================
+   3. NAVIGATION BAR
+========================================= */
+.navbar {
     background-color: var(--card-color);
-    text-align: center;
-    padding: 5rem 2rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky; 
+    top: 0;
+    z-index: 100; 
     margin-bottom: 3rem;
 }
 
-header h1 {
-    font-size: 3rem;
+.navbar .logo {
+    font-size: 2.2rem;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     letter-spacing: -1px;
 }
 
-header p {
-    font-size: 1.2rem;
-    color: #64748b;
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* 4. Main Structure */
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: var(--primary-color);
+    color: #ffffff; 
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    position: absolute;
+    top: 1.8rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    color: var(--theme-toggle-color);
+    transform: scale(1.15); 
+}
+
+#theme-toggle svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* =========================================
+   4. MAIN STRUCTURE & SECTIONS
+========================================= */
 main {
-    max-width: 800px;
-    margin: 0 auto; /* Centers the content on the screen */
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* 5. Section Cards (About Me / Projects) */
 section {
     background-color: var(--card-color);
     padding: 2.5rem;
-    border-radius: 16px; /* Modern rounded corners */
+    border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     margin-bottom: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-margin-top: 140px; 
 }
 
-/* "Levitate" effect when you hover with the mouse */
 section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
 
 section h2 {
@@ -100,23 +138,107 @@ section h2 {
     padding-bottom: 5px;
 }
 
-/* 6. Responsiveness (Adjusts the design for mobile phones) */
-@media (max-width: 600px) {
-    header {
-        padding: 3rem 1rem;
-    }
-    header h1 {
-        font-size: 2.2rem;
-    }
-    main {
-        padding: 0 1rem;
-    }
-    section {
-        padding: 1.5rem;
-    }
+/* =========================================
+   5. PROJECTS SECTION (GRID & CARDS)
+========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-/* 7. Footer */
+.project-card {
+    background-color: var(--bg-color); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 12px;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; 
+    border-bottom: 2px solid var(--primary-color);
+    display: block;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Tech Tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tags span {
+    background-color: rgba(15, 138, 85, 0.1); 
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-link:hover {
+    color: var(--primary-color);
+}
+
+.skills-group {
+    margin-bottom: 1.8rem;
+}
+
+.skills-group h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* =========================================
+   6. FOOTER
+========================================= */
 footer {
     text-align: center;
     padding: 3rem 2rem;
@@ -130,15 +252,58 @@ footer p {
     margin-bottom: 1rem;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
 .social-links a {
     color: var(--primary-color);
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 500;
-    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; 
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a i {
+    font-size: 32px;
 }
 
 .social-links a:hover {
-    color: #1d4ed8; /* A slightly darker blue for hover */
-    text-decoration: underline;
+    color: var(--text-color);
+    text-decoration: none;
+    transform: scale(1.15);
+}
+
+/* =========================================
+   7. RESPONSIVENESS (MOBILE / TABLET)
+========================================= */
+/* Tablet: Passa os projetos para 1 coluna */
+@media (max-width: 950px) {
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Telemóveis: Ajusta menus e margens */
+@media (max-width: 600px) {
+    #theme-toggle {
+        top: 1.5rem;
+        right: 1rem;
+    }
+    
+    .navbar .logo {
+        font-size: 1.8rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
 }

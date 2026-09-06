@@ -3,41 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | André Silva</title>
-    <!-- Links your HTML to the CSS design file -->
+    <title>André Silva</title> <!--My Portfolio | André Silva-->
+    <link rel="icon" type="image/png" href="imgs/favicon.png">
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
-    <header>
-        <h1>Hello, I'm [Your Name]</h1>
-        <p>Welcome to my portfolio!</p>
-        <button id="theme-toggle">🌙 Dark Mode</button>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h1 class="logo">André Silva</h1>
+        
+        <div class="nav-links">
+            <a href="#about-me">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <!-- Theme Toggle with SVG Icons -->
+        <button id="theme-toggle" aria-label="Toggle Theme">
+            <!-- Moon Icon (Shows when Dark Mode is active) -->
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            
+            <!-- Sun Icon (Shows when Light Mode is active, hidden by default) -->
+            <svg id="sun-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+        </button>
+    </nav>
 
     <main>
+        <!-- About Section -->
         <section id="about-me">
             <h2>About Me</h2>
-            <p>I am a [your profession/student] passionate about technology...
+            
+            <p>Hello! I'm a passionate developer and working student currently pursuing a degree in Computer Engineering. My academic background is built on a solid foundation, starting with a 2-year technical degree (CTeSP) and advancing into a 3-year bachelor's. I also proudly hold a professional certification as a Specialist Technician in Information Systems Programming.</p>
+            <br>
+            <p>I am a creator at heart. Whenever I encounter a problem or see an opportunity to improve a daily task, my first instinct is to build a program to solve it. My technical interests are broad and dynamic—I enjoy web development and building various software projects using languages like <strong>C#</strong>, <strong>Python</strong>, and others. Alongside standard software, I also have a strong passion for developing games.</p>
+            <br>
+            <p>When I'm not writing code, you can usually find me playing video games or watching movies and TV series. For me, these aren't just ways to pass the time; they are a constant source of inspiration that fuels my imagination and helps me brainstorm mechanics and concepts for new projects.</p>
+            <br>
+            <p>Right now, my primary focus is graduating with the best possible grades while consistently expanding my portfolio. Looking ahead, my goal is to keep writing clean code, developing useful software, and bringing my own game ideas to life.</p>
         </section>
 
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>My Skills</h2>
+            
+            <div class="skills-group">
+                <h3>Programming Languages</h3>
+                <div class="tech-tags">
+                    <span>C / C++</span>
+                    <span>Java</span>
+                    <span>Python</span>
+                    <span>C#</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <h3>Web Development</h3>
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>SQL</span>
+                    <span>Responsive Design</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <h3>Tools & Areas of Interest</h3>
+                <div class="tech-tags">
+                    <span>Git & GitHub</span>
+                    <span>Game Development</span>
+                    <span>Desktop Applications</span>
+                    <span>Object-Oriented Programming (OOP)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
         <section id="projects">
             <h2>My Projects</h2>
-            <p>Coming soon...</p>
+            
+            <!-- A nossa Grid de 3 colunas -->
+            <div class="projects-grid">
+                
+                <!-- PROJETO 1 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/252525/a31a2a?text=Weight+Tracker" alt="Weight Tracker">
+                    <div class="project-content">
+                        <h3>Weight Tracker</h3>
+                        <p>A web application to log and monitor body weight progress. Built as a Progressive Web App (PWA) with offline capabilities.</p>
+                        <div class="tech-tags">
+                            <span>HTML</span> <span>JavaScript</span> <span>PWA</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- O link do Live Demo gerado automaticamente pelo GitHub Pages -->
+                            <a href="https://lazykunn.github.io/Weight-Tracker/" class="btn-link" target="_blank"><i class='bx bx-link-external'></i> Live Demo</a>
+                            <a href="https://github.com/LazyKunn/Weight-Tracker" class="btn-link" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJETO 2 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/252525/a31a2a?text=Project+2" alt="Projeto 2">
+                    <div class="project-content">
+                        <h3>Task Manager</h3>
+                        <p>A simple productivity app to keep track of daily goals and routines.</p>
+                        <div class="tech-tags">
+                            <span>React</span> <span>Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-link" target="_blank"><i class='bx bx-link-external'></i> Live Demo</a>
+                            <a href="#" class="btn-link" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJETO 3 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/252525/a31a2a?text=Project+3" alt="Projeto 3">
+                    <div class="project-content">
+                        <h3>Weather App</h3>
+                        <p>Real-time weather forecasting tool using a public API and geolocation.</p>
+                        <div class="tech-tags">
+                            <span>API</span> <span>JS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-link" target="_blank"><i class='bx bx-link-external'></i> Live Demo</a>
+                            <a href="#" class="btn-link" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="text-align: center;">
+            <h2>Let's Talk</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Although I am not currently looking for full-time employment, I am open to taking on freelance projects and side gigs. If you have a project in mind, need some custom work done, or just want to chat about tech and games, feel free to reach out!
+            </p>
+            
+            <!-- Email na Caixa Vermelha (Sem formato de botão) -->
+            <div style="display: inline-block; background-color: var(--primary-color); color: #fff; padding: 0.8rem 1.8rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; user-select: all;">
+                andregsilva@email.com
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <p>&copy; 2026 André Silva. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-            <a href="mailto:your.email@example.com">Email</a>
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                <i class='bx bxl-github'></i>
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                <i class='bx bxl-linkedin-square'></i>
+            </a>
+            <a href="mailto:your.email@example.com" aria-label="Email">
+                <i class='bx bx-envelope'></i>
+            </a>
         </div>
     </footer>
 
-</body>
-
     <script src="script.js"></script>
+
+</body>
 
 </html>
