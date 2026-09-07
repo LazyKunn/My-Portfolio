@@ -4,19 +4,23 @@
 :root {
     --font-family: 'Segoe UI', system-ui, sans-serif;
     
-    --bg-color: #111111; 
-    --card-color: #1c1c1c; 
-    --text-color: #f5f5f5;     
-    --primary-color: #a31a2a;  
+    /* DARK MODE (Default) - Tons de Preto + Vinho */
+    --bg-color: #0a0a0a;       /* Preto profundo para o fundo */
+    --card-color: #1a1a1a;     /* Cinza muito escuro para os cartões */
+    --text-color: #f5f5f5;     /* Branco suave para facilitar a leitura */
+    --primary-color: #a31a2a;  /* O teu Royal Wine Red original */
     --theme-toggle-color: #facc15;
+    --grid-color: rgba(255, 255, 255, 0.08); /* Cor dos pontos no modo escuro */
 }
 
 [data-theme="light"] {
-    --bg-color: #f8faf9;        
-    --card-color: #ffffff;      
-    --text-color: #111827;
-    --primary-color: #a51a36;   
+    /* LIGHT MODE - Tons de Branco + Vinho */
+    --bg-color: #f4f4f5;       /* Cinza muito claro para o fundo */
+    --card-color: #ffffff;     /* Branco puro para os cartões */
+    --text-color: #171717;     /* Preto/Cinza muito escuro para contraste */
+    --primary-color: #b81c35;  /* Tom de vinho ligeiramente mais vibrante */
     --theme-toggle-color: #facc15; 
+    --grid-color: rgba(0, 0, 0, 0.1); /* Cor dos pontos no modo claro */
 }
 
 /* =========================================
@@ -37,6 +41,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    /* Grelha atualizada para usar a nova variável --grid-color */
+    background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
+    background-size: 24px 24px;
 }
 
 /* =========================================
@@ -55,11 +62,27 @@ body {
     margin-bottom: 3rem;
 }
 
-.navbar .logo {
-    font-size: 2.2rem;
+.logo {
+    font-family: 'Consolas', 'Courier New', monospace; /* Tech font */
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo .bracket {
+    color: var(--primary-color); /* Your Wine Red */
+}
+
+.logo .cursor {
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    letter-spacing: -1px;
+    animation: blink 1s step-end infinite; /* Blinking terminal effect */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .nav-links {
@@ -150,7 +173,7 @@ section h2 {
 
 .project-card {
     background-color: var(--bg-color); 
-    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(128, 128, 128, 0.2); /* Borda mais neutra */
     border-radius: 12px;
     overflow: hidden; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -186,7 +209,7 @@ section h2 {
     margin-bottom: 1.5rem;
 }
 
-/* Tech Tags */
+/* Tech Tags - Atualizadas para estilo "código" */
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -195,12 +218,14 @@ section h2 {
 }
 
 .tech-tags span {
-    background-color: rgba(15, 138, 85, 0.1); 
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: rgba(105, 105, 105, 0.1); 
     color: var(--primary-color);
     padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    border-radius: 6px; /* Mais quadrado como etiquetas de código */
+    font-size: 0.85rem;
     font-weight: 600;
+    border: 1px solid var(--grid-color);
 }
 
 /* Project Links */
@@ -281,15 +306,19 @@ footer p {
 /* =========================================
    7. RESPONSIVENESS (MOBILE / TABLET)
 ========================================= */
-/* Tablet: Passa os projetos para 1 coluna */
+/* Tablet: Passa os projetos para 2 colunas (ecrãs médios) */
 @media (max-width: 950px) {
     .projects-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
-/* Telemóveis: Ajusta menus e margens */
+/* Telemóveis: Passa os projetos para 1 coluna e ajusta margens (ecrãs pequenos) */
 @media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+    }
+
     #theme-toggle {
         top: 1.5rem;
         right: 1rem;
